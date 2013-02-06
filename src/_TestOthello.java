@@ -15,7 +15,7 @@ public class _TestOthello  {
 	@Before
 	public void setUp() throws Exception {
 		oth_test = new Othello();
-		//System.out.println("@Before: set up ");
+		System.out.println("@Before: set up ");
 	
 	}
 	
@@ -25,7 +25,6 @@ public void TestOthello() throws Exception
 	
 	for (int i = 0; i < 8; i++)
 		for (int j = 0; j < 8; j++) {
-				System.out.println(oth_test.getOt()[i][j].getEtat());
 			if (i == 3 && j == 4 || i == 4 && j == 3)
 				assertTrue(new Pion ('N', i, j).equals(oth_test.getOt()[i][j])) ;
 			else if (i == 4 && j == 4 || i == 3 && j == 3)
@@ -33,6 +32,11 @@ public void TestOthello() throws Exception
 			else
 				assertTrue(new Pion('*', i, j).equals(oth_test.getOt()[i][j]) );
 		}
+}
+@Test 
+public void TestPeut_etre_placer(){
+    	assertFalse(oth_test.Peut_etre_placer(new Pion('B',0,0)));
+    	assertTrue(oth_test.Peut_etre_placer(new Pion('B',5,5)));
 }
 	
 }

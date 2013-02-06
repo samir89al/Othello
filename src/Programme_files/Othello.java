@@ -22,6 +22,97 @@ public class Othello {
 		// TODO Auto-generated method stub
 		return ot;
 	}
+	public boolean Peut_etre_placer(Pion p) {
+		// TODO Auto-generated method stub
+		switch (p.getPx()) {
+		case 0:
+			if (p.getPy() == 0
+					&& (ot[p.getPx() + 1][p.getPy()].getEtat() != '*'
+							|| ot[p.getPx()][p.getPy() + 1].getEtat() != '*' || ot[p
+							.getPx() + 1][p.getPy() + 1].getEtat() != '*')
+					|| p.getPy() == 7
+					&& (ot[p.getPx() + 1][p.getPy()].getEtat() != '*'
+							|| ot[p.getPx()][p.getPy() - 1].getEtat() != '*' || ot[p
+							.getPx() - 1][p.getPy() + 1].getEtat() != '*')
+					|| p.getPy() < 7
+					&& p.getPy() > 0
+					&& (ot[p.getPx() + 1][p.getPy() - 1].getEtat() != '*'
+							|| ot[p.getPx() + 1][p.getPy() + 1].getEtat() != '*'
+							|| ot[p.getPx() + 1][p.getPy()].getEtat() != '*' || ot[p
+							.getPx()][p.getPy() - 1].getEtat() != '*'))
+				return true;
+			break;
+		case 7:
+			if (p.getPy() == 0
+					&& (ot[p.getPx() - 1][p.getPy()].getEtat() != '*'
+							|| ot[p.getPx()][p.getPy() + 1].getEtat() != '*' || ot[p
+							.getPx() - 1][p.getPy() + 1].getEtat() != '*')
+					|| p.getPy() == 7
+					&& (ot[p.getPx() - 1][p.getPy()].getEtat() != '*'
+							|| ot[p.getPx()][p.getPy() - 1].getEtat() != '*' || ot[p
+							.getPx() - 1][p.getPy() - 1].getEtat() != '*')
+					|| p.getPy() < 7
+					&& p.getPy() > 0
+					&& (ot[p.getPx() - 1][p.getPy() - 1].getEtat() != '*'
+							|| ot[p.getPx() - 1][p.getPy() + 1].getEtat() != '*'
+							|| ot[p.getPx() - 1][p.getPy()].getEtat() != '*' || ot[p
+							.getPx()][p.getPy() - 1].getEtat() != '*'))
+				return true;
+			break;
+		default:
+
+			switch (p.getPy()) {
+			case 0:
+				if (p.getPx() == 0
+						&& (ot[p.getPx() + 1][p.getPy()].getEtat() != '*'
+								|| ot[p.getPx()][p.getPy() + 1].getEtat() != '*' || ot[p
+								.getPx() + 1][p.getPy() + 1].getEtat() != '*')
+						|| p.getPx() == 7
+						&& (ot[p.getPx() - 1][p.getPy()].getEtat() != '*'
+								|| ot[p.getPx()][p.getPy() + 1].getEtat() != '*' || ot[p
+								.getPx() - 1][p.getPy() - 1].getEtat() != '*')
+						|| p.getPx() < 7
+						&& p.getPx() > 0
+						&& (ot[p.getPx() - 1][p.getPy() + 1].getEtat() != '*'
+								|| ot[p.getPx() + 1][p.getPy() + 1].getEtat() != '*'
+								|| ot[p.getPx() + 1][p.getPy()].getEtat() != '*'
+								|| ot[p.getPx() - 1][p.getPy()].getEtat() != '*' || ot[p
+								.getPx()][p.getPy() + 1].getEtat() != '*'))
+					return true;
+				break;
+			case 7:
+				if (p.getPx() == 0
+						&& (ot[p.getPx()][p.getPy() - 1].getEtat() != '*'
+								|| ot[p.getPx() + 1][p.getPy()].getEtat() != '*' || ot[p
+								.getPx() + 1][p.getPy() - 1].getEtat() != '*')
+						|| p.getPx() == 7
+						&& (ot[p.getPx() - 1][p.getPy()].getEtat() != '*'
+								|| ot[p.getPx()][p.getPy() - 1].getEtat() != '*' || ot[p
+								.getPx() - 1][p.getPy() - 1].getEtat() != '*')
+						|| p.getPx() < 7
+						&& p.getPx() > 0
+						&& (ot[p.getPx() - 1][p.getPy() - 1].getEtat() != '*'
+								|| ot[p.getPx() + 1][p.getPy() - 1].getEtat() != '*'
+								|| ot[p.getPx() - 1][p.getPy()].getEtat() != '*' || ot[p
+								.getPx()][p.getPy() - 1].getEtat() != '*'))
+					return true;
+				break;
+			default:
+				if (ot[p.getPx() + 1][p.getPy()].getEtat() != '*'
+						|| ot[p.getPx() - 1][p.getPy()].getEtat() != '*'
+						|| ot[p.getPx()][p.getPy() + 1].getEtat() != '*'
+						|| ot[p.getPx()][p.getPy() - 1].getEtat() != '*'
+						|| ot[p.getPx() + 1][p.getPy() + 1].getEtat() != '*'
+						|| ot[p.getPx() - 1][p.getPy() - 1].getEtat() != '*'
+						|| ot[p.getPx() + 1][p.getPy() - 1].getEtat() != '*'
+						|| ot[p.getPx() - 1][p.getPy() + 1].getEtat() != '*')
+					return true;
+				else
+					return false;
+			}
+		}
+		return false;
+	}
 	
 	
 	
