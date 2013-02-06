@@ -33,5 +33,26 @@ public class Pion {
 		return this.Py;
 	}
 
+	public void setEtat(char c) {
+		// TODO Auto-generated method stub
+		this.Etat=c;
+	}
+
+	public void setPx(int i) {
+		// TODO Auto-generated method stub
+		this.Px=i;
+	}
+
+	public void setPy(int i) {
+		// TODO Auto-generated method stub
+		this.Py=i;
+	}
+
+
+	public boolean equals(Pion obj) {
+		// TODO Auto-generated method stub
+		return this.Etat==obj.getEtat()&&this.Px==obj.getPx()&&this.Py==obj.getPy();
+	}
+
  
 }
