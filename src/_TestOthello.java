@@ -122,4 +122,43 @@ public void TestReg_Hor(){
 		}
 		}
 }
+@Test
+public void testReg_diag() {
+	/*Test de la regle de transformation diagonale */
+	Othello othe_1 = new Othello();
+	othe_1.getOt()[5][5]=new Pion('N',5,5);
+	othe_1.getOt()[2][2]=new Pion('N',2,2);
+	System.out.println("============ Regle Diagonale Othello_1 ======== Avant Application de la regle : ");
+	othe_1.afficher();
+	othe_1.reg_diag(new Pion('N',5,5));
+	System.out.println("============ Regle Diagonale Othello_1 ======== Après application de la regle 'DIAGONALE' ");
+	othe_1.afficher();
+	//othe_1.reg_diag(new Pion('N',2,2));
+	
+	//oth_test = new Othello();
+	oth_test.getOt()[5][5].setEtat('N');
+	oth_test.getOt()[5][5].setPx(5);
+	oth_test.getOt()[5][5].setPy(5);
+	
+	oth_test.getOt()[2][2].setEtat('N');
+	oth_test.getOt()[2][2].setPx(2);
+	oth_test.getOt()[2][2].setPy(2);
+	
+	oth_test.getOt()[4][4].setEtat('N');
+	oth_test.getOt()[3][3].setEtat('N');
+	System.out.println("============ Regle Diagonale Othello_test ======== Après assigniation manuelle des Pions ");
+	oth_test.afficher();
+	
+	for (int j = 0; j < 8; j++) {
+		for (int i = 0; i < 8; i++) {
+			Assert.assertTrue(oth_test.getOt()[i][j].equals(othe_1.getOt()[i][j]));
+			
+		}
+	}
+	
+	System.out.println("================================");
+	
+	
+	
+}
 }

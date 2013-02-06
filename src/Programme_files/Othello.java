@@ -221,6 +221,95 @@ public class Othello {
 		}
 
 	}
+	public void reg_diag(Pion p) {
+		// TODO Auto-generated method stub
+		boolean test = false, test1 = false;
+		// haut
+		for (int i = p.getPx() + 1, j = p.getPy() + 1; i < 8 && j < 8; i++, j++)
+			if (ot[i][j] == null || ot[i][j].getEtat() == '*') {
+				test = false;
+				break;
+			} else if (ot[i][j].getEtat() != p.getEtat()
+					&& ot[i][j].getEtat() != '*')
+				test = true;
+			else if (ot[i][j].getEtat() == p.getEtat() && test) {
+				test1 = true;
+				break;
+			}
+
+		System.out.println(" modifiable giag haut " + test1);
+		if (test1 == true) {
+			for (int i = p.getPx() + 1, j = p.getPy() + 1; i < 8 && j < 8
+					&& p.getEtat() != ot[i][i].getEtat(); i++, j++)
+				ot[i][j].setEtat(p.getEtat());
+		}
+
+		// bat
+		test = false;
+		test1 = false;
+		for (int i = p.getPx() - 1, j = p.getPy() - 1; i >= 0 && j >= 0; i--, j--)
+			if (ot[i][j] == null || ot[i][j].getEtat() == '*') {
+				test = false;
+				break;
+			} else if (ot[i][j].getEtat() != p.getEtat()
+					&& ot[i][j].getEtat() != '*')
+				test = true;
+			else if (ot[i][j].getEtat() == p.getEtat() && test) {
+				test1 = true;
+				break;
+			}
+
+		System.out.println(" modifiable diag bas " + test1);
+		if (test1 == true) {
+			for (int i = p.getPx() - 1, j = p.getPy() - 1; i >= 0 && j >= 0
+					&& p.getEtat() != ot[i][i].getEtat(); i--, j--)
+				ot[i][j].setEtat(p.getEtat());
+		}
+
+		// bat
+		test = false;
+		test1 = false;
+		for (int i = p.getPx() - 1, j = p.getPy() + 1; i >= 0 && j < 8; i--, j++)
+			if (ot[i][j] == null || ot[i][j].getEtat() == '*') {
+				test = false;
+				break;
+			} else if (ot[i][j].getEtat() != p.getEtat()
+					&& ot[i][j].getEtat() != '*')
+				test = true;
+			else if (ot[i][j].getEtat() == p.getEtat() && test) {
+				test1 = true;
+				break;
+			}
+
+		System.out.println(" modifiable diag BAS " + test1);
+		if (test1 == true) {
+			for (int i = p.getPx() - 1, j = p.getPy() + 1; i >= 0 && j < 0
+					&& p.getEtat() != ot[i][i].getEtat(); i++, j--)
+				ot[i][j].setEtat(p.getEtat());
+		}
+
+		// haut
+		test = false;
+		test1 = false;
+		for (int i = p.getPx() + 1, j = p.getPy() - 1; i < 8 && j >= 0; i++, j--)
+			if (ot[i][j] == null || ot[i][j].getEtat() == '*') {
+				test = false;
+				break;
+			} else if (ot[i][j].getEtat() != p.getEtat()
+					&& ot[i][j].getEtat() != '*')
+				test = true;
+			else if (ot[i][j].getEtat() == p.getEtat() && test) {
+				test1 = true;
+				break;
+			}
+
+		System.out.println(" modifiable diag HAUT " + test1);
+		if (test1 == true) {
+			for (int i = p.getPx() + 1, j = p.getPy() - 1; i < 8 && j >= 0
+					&& p.getEtat() != ot[i][i].getEtat(); i++, j--)
+				ot[i][j].setEtat(p.getEtat());
+		}
+	}
 
 	
 
