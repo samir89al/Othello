@@ -310,6 +310,31 @@ public class Othello {
 				ot[i][j].setEtat(p.getEtat());
 		}
 	}
+	public boolean AjouterPion(Pion p) {
+		if (ot[p.getPx()][p.getPy()] == null
+				|| ot[p.getPx()][p.getPy()].getEtat() == '*') {
+
+			if (p.getEtat() == '*')
+				ot[p.getPx()][p.getPy()] = p;
+			else if (Peut_etre_placer(p))
+
+			{
+				if (p.getEtat() != '*') {
+					ot[p.getPx()][p.getPy()] = p;
+					reg_diag(p);
+					reg_hor(p);
+					reg_ver(p);
+					afficher();
+					return true;
+				}
+			} else
+				System.out
+						.println("La position choisi n'est pas jouable !!");
+		} else
+			System.out.println("Position déja occuppé");
+
+		return false;
+		}
 
 	
 

@@ -161,4 +161,24 @@ public void testReg_diag() {
 	
 	
 }
+@Test
+public void  TestAjouterPion(){
+	Othello othe_1 = new Othello();
+	othe_1.getOt()[3][5].setEtat('B');
+	othe_1.getOt()[3][5].setPx(3);
+	othe_1.getOt()[3][5].setPy(5);
+	othe_1.getOt()[3][4].setEtat('B');
+	System.out.println();
+	oth_test.AjouterPion(new Pion('B',3,5));
+
+	
+	
+	for (int j=0; j<8;j++){
+		for(int i=0;i<8;i++ ){
+			Assert.assertTrue(oth_test.getOt()[i][j].equals(othe_1.getOt()[i][j]));
+			
+		}
+	}
+	
+}
 }
