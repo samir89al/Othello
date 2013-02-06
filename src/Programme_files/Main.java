@@ -47,7 +47,10 @@ public class Main {
 				l = -1;
 				break;
 			case 2:
-				System.out.println("le compte est ");
+				if(o.getScore()!='*')
+				System.out.println("Le gagnant est "+ o.getScore());
+				else System.out.println("Egalite");
+				System.exit(0);
 				break;
 			case 3:
 				if (joueur)
