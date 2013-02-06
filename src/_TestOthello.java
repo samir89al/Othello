@@ -181,4 +181,12 @@ public void  TestAjouterPion(){
 	}
 	
 }
+@Test
+public void TestScore(){
+	
+	oth_test.AjouterPion(new Pion('B', 5, 5));
+	assertEquals('B', oth_test.getScore());
+	oth_test.AjouterPion(new Pion('N', 5, 6));
+	oth_test.AjouterPion(new Pion('B', 5, 4));
+}
 }

@@ -335,6 +335,22 @@ public class Othello {
 
 		return false;
 		}
+	public char getScore() {
+		// TODO Auto-generated method stub
+		int score=0;
+		for(int i=0;i<8;i++)
+			for(int j=0;j<8;j++)
+			{
+				if(ot[i][j].getEtat()=='B')
+					score--;
+				else if(ot[i][j].getEtat()=='N') score++;
+			}
+		
+		if(score>0)
+		return 'N';
+		else if(score<0) return 'B';
+		else  return '*';
+	}
 
 	
 
