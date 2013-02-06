@@ -20,7 +20,12 @@ public class _TestPion  {
 	@Test
 	public void TestsetPion()
 	{
-		
+	  Pion pion =new Pion('B',8,8);
+	  assertEquals('B',pion.getEtat());
+	  assertEquals(8, pion.getPx());
+		assertEquals(8, pion.getPy());
+	  
+	  
 	}
 
 }
