@@ -158,6 +158,71 @@ public class Othello {
 		}
 
 	}
+	public void afficher() {
+		// TODO Auto-generated method stub
+		System.out.print("| |");
+		for (int j = 0; j < 8; j++)
+			System.out.print("|" + j + "|");
+		System.out.println();
+		for (int i = 7; i >= 0; i--) {
+			for (int k = 0; k < 28; k++)
+				System.out.print("_");
+			System.out.println();
+			System.out.print("|" + i + "|");
+			for (int j = 0; j < 8; j++)
+				System.out.print("|" + ot[i][j].getEtat() + "|");
+			System.out.println();
+		}	
+	}
+	public void reg_ver(Pion p) {
+		// TODO Auto-generated method stub
+		boolean test = false, test1 = false;
+		// haut
+		for (int i = p.getPx() + 1; i < 8; i++)
+			if (ot[i][p.getPy()] == null || ot[i][p.getPy()].getEtat() == '*') {
+				test = false;
+				break;
+			} else if (ot[i][p.getPy()].getEtat() != p.getEtat()
+					&& ot[i][p.getPy()].getEtat() != '*')
+				test = true;
+			else if (ot[i][p.getPy()].getEtat() == p.getEtat() && test) {
+				test1 = true;
+				break;
+			}
+
+		System.out.println(" modifiable vers le haut " + test1);
+		if (test1 == true) {
+			for (int i = p.getPx() + 1; i < 8
+					&& p.getEtat() != ot[i][p.getPy()].getEtat(); i++)
+				ot[i][p.getPy()].setEtat(p.getEtat());
+		}
+
+		// bas
+		test = false;
+		test1 = false;
+		for (int i = p.getPx() - 1; i >= 0; i--)
+			if (ot[i][p.getPy()] == null || ot[i][p.getPy()].getEtat() == '*') {
+				test = false;
+				break;
+			} else if (ot[i][p.getPy()].getEtat() != p.getEtat()
+					&& ot[i][p.getPy()].getEtat() != '*') {
+				test = true;
+			} else if (ot[i][p.getPy()].getEtat() == p.getEtat() && test) {
+				test1 = true;
+				break;
+			}
+
+		System.out.println(" modifiable vers le bas " + test1);
+
+		if (test1 == true) {
+			for (int i = p.getPx() - 1; i >= 0
+					&& p.getEtat() != ot[i][p.getPy()].getEtat(); i--)
+				ot[i][p.getPy()].setEtat(p.getEtat());
+		}
+
+	}
+
+	
 
 	
 	
